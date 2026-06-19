@@ -127,7 +127,7 @@ export function MilestoneList({ projectId }: MilestoneListProps) {
         {/* Milestone list */}
         {!milestones || milestones.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-4">
-            Aucun jalon défini
+            Aucun jalon
           </p>
         ) : (
           <div className="space-y-2">
@@ -163,7 +163,7 @@ export function MilestoneList({ projectId }: MilestoneListProps) {
                     {milestone.completed && milestone.completed_at && (
                       <Badge variant="secondary" className="text-[10px] bg-emerald-100 text-emerald-800">
                         <Check className="h-2.5 w-2.5 mr-0.5" />
-                        Terminé
+                        Fait
                       </Badge>
                     )}
                   </div>
