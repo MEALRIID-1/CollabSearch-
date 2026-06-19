@@ -15710,3 +15710,389 @@ into your web browser: <span class="break-all" style="box-sizing: border-box; fo
 [2026-06-19 16:57:58] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
 [2026-06-19 16:58:00] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
 [2026-06-19 16:58:02] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 17:04:58] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:06:21] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:41:59] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:01] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:03] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:06] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:08] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:10] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:13] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:15] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:32] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:34] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:42:36] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:19] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:22] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:24] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:26] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:28] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:30] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:33] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:35] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:37] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:38] local.DEBUG: From: CollabSearch <hello@collabsearch.com>
+To: rivaldo@gmail.com
+Subject: CollabSearch - =?utf-8?Q?T=C3=A2che_valid=C3=A9e?=
+MIME-Version: 1.0
+Date: Fri, 19 Jun 2026 17:43:38 +0000
+Message-ID: <abcd06f4a141104ff09080351bc9b385@collabsearch.com>
+Content-Type: multipart/alternative; boundary=EQUgUB3k
+
+--EQUgUB3k
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+CollabSearch: http://localhost:8000
+
+# Bonjour rivaldo,
+
+✅ La tâche **test** a été **validée** par idriss mess.
+
+Projet : projet tutore
+
+Voir la tâche: http://localhost:8000/tasks/3
+
+L'équipe CollabSearch
+
+If you're having trouble clicking the "Voir la tâche" button, copy and paste the URL below
+into your web browser: [http://localhost:8000/tasks/3](http://localhost:8000/tasks/3)
+
+© 2026 CollabSearch. All rights reserved.
+
+--EQUgUB3k
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>CollabSearch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #52525b; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #fafafa; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="http://localhost:8000" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+CollabSearch
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #fafafa; border-bottom: 1px solid #fafafa; border-top: 1px solid #fafafa; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e4e4e7; border-radius: 4px; border-width: 1px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; font-size: 18px; font-weight: bold; margin-top: 0; text-align: start;">Bonjour rivaldo,</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">✅ La tâche <strong style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">test</strong> a été <strong style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">validée</strong> par idriss mess.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Projet : projet tutore</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="http://localhost:8000/tasks/3" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #18181b; border-bottom: 8px solid #18181b; border-left: 18px solid #18181b; border-right: 18px solid #18181b; border-top: 8px solid #18181b; word-break: break-all;">Voir la tâche</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">L'équipe CollabSearch</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e4e4e7; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Voir la tâche" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="http://localhost:8000/tasks/3" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; word-break: break-all;">http://localhost:8000/tasks/3</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #a1a1aa; font-size: 12px; text-align: center;">© 2026 CollabSearch. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--EQUgUB3k--
+  
+[2026-06-19 17:43:40] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:43] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:43:45] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:51:06] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:51:08] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:51:11] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:51:13] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 17:51:29] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:22:25] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:28] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:30] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:43] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:45] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:48] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:52] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:54] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:56] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:22:59] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:23:01] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:23:03] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:23:05] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:47] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:49] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:51] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:53] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:56] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:24:58] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:00] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:02] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:05] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:07] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:09] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:11] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:14] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:16] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:25:34] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:25:36] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:25:38] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:25:40] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:25:42] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:28:09] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:28:09] local.DEBUG: From: CollabSearch <hello@collabsearch.com>
+To: audrey@gmail.com
+Subject: CollabSearch - Invitation =?utf-8?Q?=C3=A0?= une
+ =?utf-8?Q?r=C3=A9union?=
+MIME-Version: 1.0
+Date: Fri, 19 Jun 2026 18:28:09 +0000
+Message-ID: <b7239fe472410aecc332b927bf26599f@collabsearch.com>
+Content-Type: multipart/alternative; boundary=d-XaYpzQ
+
+--d-XaYpzQ
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+CollabSearch: http://localhost:8000
+
+# Bonjour audrey,
+
+Vous avez été invité(e) à la réunion **Realisation** par **idriss mess**.
+
+Date : 19/06/2026 à 18:29
+
+Voir la réunion: http://localhost:8000/meetings/5
+
+L'équipe CollabSearch
+
+If you're having trouble clicking the "Voir la réunion" button, copy and paste the URL below
+into your web browser: [http://localhost:8000/meetings/5](http://localhost:8000/meetings/5)
+
+© 2026 CollabSearch. All rights reserved.
+
+--d-XaYpzQ
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>CollabSearch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #52525b; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #fafafa; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="http://localhost:8000" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+CollabSearch
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #fafafa; border-bottom: 1px solid #fafafa; border-top: 1px solid #fafafa; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e4e4e7; border-radius: 4px; border-width: 1px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; font-size: 18px; font-weight: bold; margin-top: 0; text-align: start;">Bonjour audrey,</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Vous avez été invité(e) à la réunion <strong style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">Realisation</strong> par <strong style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">idriss mess</strong>.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Date : 19/06/2026 à 18:29</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="http://localhost:8000/meetings/5" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #18181b; border-bottom: 8px solid #18181b; border-left: 18px solid #18181b; border-right: 18px solid #18181b; border-top: 8px solid #18181b; word-break: break-all;">Voir la réunion</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">L'équipe CollabSearch</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e4e4e7; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Voir la réunion" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="http://localhost:8000/meetings/5" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #18181b; word-break: break-all;">http://localhost:8000/meetings/5</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #a1a1aa; font-size: 12px; text-align: center;">© 2026 CollabSearch. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--d-XaYpzQ--
+  
+[2026-06-19 18:28:11] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:28:30] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:32] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:34] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:37] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:39] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:41] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:43] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:48] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:50] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:52] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:54] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:28:59] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:29:01] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:29:03] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:29:06] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:29:08] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:29:21] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:23] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:25] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:28] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:34] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:37] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:39] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:44] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:29:46] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:30:25] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:30:27] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:30:29] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:30:32] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:30:35] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:33:21] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:33:24] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:33:26] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:33:28] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"687c506b5a16e8959bafa89fe2396a6bb200038c","user_ip":"127.0.0.1","user_id":1} 
+[2026-06-19 18:34:27] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:34:29] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:34:31] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:34:33] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
+[2026-06-19 18:34:36] local.WARNING: ApiRateLimiter cache unavailable, request will proceed without rate limiting {"error":"Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée [tcp://127.0.0.1:6379]","key":"77d5863b68e9977be18ec5ee9528ba2fb000bb9f","user_ip":"127.0.0.1","user_id":3} 
