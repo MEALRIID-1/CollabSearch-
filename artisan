@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+<?php
+
+define('LARAVEL_START', microtime(true));
+
+/*
+|--------------------------------------------------------------------------
+| Enregistrement de l'autoloader Composer
+|--------------------------------------------------------------------------
+|
+| L'autoloader Composer assure le chargement automatique de toutes
+| les classes du projet. Cela permet d'utiliser les classes sans
+| avoir à les inclure manuellement.
+|
+*/
+
+require __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Exécution de la commande Artisan
+|--------------------------------------------------------------------------
+|
+| Démarre l'application Laravel et transmet la commande à Artisan
+| pour traitement. Artisan est l'interface en ligne de commande
+| de Laravel pour les tâches de développement.
+|
+*/
+
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
+$status = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+$kernel->terminate($input, $status);
+
+exit($status);
