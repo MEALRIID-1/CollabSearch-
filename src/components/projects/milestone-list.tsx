@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils/cn';
 import { useProjectMilestones } from '@/lib/hooks/use-projects';
 import { projectsApi } from '@/lib/api/projects';
 import { useQueryClient } from '@tanstack/react-query';
+import { usePermissions } from '@/lib/hooks/use-permissions';
 import type { Milestone } from '@/types/models';
 
 interface MilestoneListProps {
@@ -21,6 +22,7 @@ interface MilestoneListProps {
 export function MilestoneList({ projectId }: MilestoneListProps) {
   const { data: milestones, isLoading } = useProjectMilestones(projectId);
   const queryClient = useQueryClient();
+  const { can } = usePermissions();
   const [showForm, setShowForm] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDueDate, setNewDueDate] = useState('');
@@ -72,19 +74,21 @@ export function MilestoneList({ projectId }: MilestoneListProps) {
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Jalons</CardTitle>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowForm(!showForm)}
-          >
-            <Plus className="h-4 w-4 mr-1" />
-            Ajouter
-          </Button>
+          {can('projects.manage_milestones') && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setShowForm(!showForm)}
+            >
+              <Plus className="h-4 w-4 mr-1" />
+              Ajouter
+            </Button>
+          )}
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
         {/* Add milestone form */}
-        {showForm && (
+        {showForm && can('projects.manage_milestones') && (
           <div className="flex flex-col gap-2 p-3 rounded-lg bg-muted/50">
             <Input
               placeholder="Titre du jalon"
