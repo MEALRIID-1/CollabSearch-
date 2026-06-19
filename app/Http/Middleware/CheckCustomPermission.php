@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\AdminUserService;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,9 +15,12 @@ use Symfony\Component\HttpFoundation\Response;
  *   ->middleware('custom_permission:tasks.create,tasks.edit_own')  // au moins une
  *
  * Les administrateurs (Spatie role = administrator) passent toujours.
+ * Si un utilisateur n'a aucun rôle custom, un rôle par défaut est auto-assigné.
  */
 class CheckCustomPermission
 {
+    public function __construct(private readonly AdminUserService $adminUserService) {}
+
     public function handle(Request $request, Closure $next, string ...$permissions): Response
     {
         $user = $request->user();
@@ -33,6 +37,19 @@ class CheckCustomPermission
         // Charger les permissions custom si pas encore chargées
         if (!$user->relationLoaded('customRoles')) {
             $user->load('customRoles.permissions');
+        }
+
+        // Auto-corriger : si l'utilisateur n'a aucun rôle custom, lui assigner le rôle par défaut
+        if ($user->customRoles->isEmpty()) {
+            $admin = $user->adminOwners()->first();
+            $spatieRole = $user->roles->first()?->name ?? 'researcher';
+            if ($admin) {
+                $defaultRole = $this->adminUserService->getOrCreateDefaultCustomRole($admin, $spatieRole);
+                if ($defaultRole) {
+                    $this->adminUserService->assignDefaultRoleToUser($admin, $user, $defaultRole);
+                    $user->load('customRoles.permissions');
+                }
+            }
         }
 
         $userPermissions = $user->customRoles

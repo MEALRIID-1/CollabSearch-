@@ -251,7 +251,8 @@ class AiService
             $contextString .= "=== PROJET ACTIF ===\n";
             $contextString .= "Titre : " . ($project['title'] ?? 'Inconnu') . "\n";
             $contextString .= "Description : " . ($project['description'] ?? '') . "\n";
-            $contextString .= "Membres : " . implode(', ', $project['members'] ?? []) . "\n";
+            $memberNames = array_column($project['members'] ?? [], 'name');
+            $contextString .= "Membres : " . implode(', ', $memberNames) . "\n";
         }
         if (!empty($context['tasks'])) {
             $contextString .= "\n=== TÂCHES DU PROJET ===\n";
@@ -1126,7 +1127,7 @@ SYSTEM;
                 // Filtre utilisateur : tâches assignées à moi ou dans mon projet
                 if ($authUserId) {
                     $taskQuery->where(function ($q) use ($authUserId, $projectId) {
-                        $q->where('assigned_to', $authUserId);
+                        $q->where('assignee_id', $authUserId);
                         if (!$projectId) {
                             $q->orWhereHas('project', fn($pq) => $pq->whereHas('members', fn($mq) => $mq->where('users.id', $authUserId)));
                         }

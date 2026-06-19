@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Enums\Permission;
 use App\Models\CustomRole;
+use App\Models\CustomRolePermission;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -58,32 +60,31 @@ class AdminUserService
 
         return DB::transaction(function () use ($admin, $data, $origin, $verifyEmail, $password, $mustChangePassword) {
             $user = User::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'password' => Hash::make($password),
-                'institution' => $data['institution'] ?? null,
-                'specialty' => $data['specialty'] ?? null,
-                'orcid' => $this->generateOrcid(),
-                'is_active' => $data['is_active'] ?? true,
-                'created_by_admin_id' => $admin->id,
+                'first_name'           => $data['first_name'],
+                'last_name'            => $data['last_name'],
+                'email'                => $data['email'],
+                'password'             => Hash::make($password),
+                'institution'          => $data['institution'] ?? null,
+                'specialty'            => $data['specialty'] ?? null,
+                'orcid'                => $this->generateOrcid(),
+                'is_active'            => $data['is_active'] ?? true,
+                'created_by_admin_id'  => $admin->id,
                 'must_change_password' => $mustChangePassword,
-                'email_verified_at' => $verifyEmail ? now() : null,
+                'email_verified_at'    => $verifyEmail ? now() : null,
             ]);
 
-            $roleName = $data['role'] ?? 'researcher';
+            $roleName   = $data['role'] ?? 'researcher';
             $spatieRole = SpatieRole::findByName($roleName, 'web');
             $user->assignRole($spatieRole);
 
-            // Créer le membership AVANT d'assigner le rôle custom
-            // car assignRoleToUser() vérifie isManagedBy() qui lit admin_user_memberships
+            // Membership AVANT rôle custom (assignRoleToUser vérifie isManagedBy)
             $admin->managedUsers()->attach($user->id, [
-                'origin' => $origin,
+                'origin'    => $origin,
                 'is_active' => true,
-                'added_at' => now(),
+                'added_at'  => now(),
             ]);
 
-            // Assigner le rôle custom si fourni
+            // Rôle custom fourni → l'utiliser, sinon → rôle par défaut selon Spatie
             if (!empty($data['custom_role_uuid'])) {
                 $customRole = CustomRole::where('uuid', $data['custom_role_uuid'])
                     ->where('admin_id', $admin->id)
@@ -91,12 +92,14 @@ class AdminUserService
                 if ($customRole) {
                     $this->customRoleService->assignRoleToUser($admin, $user, $customRole);
                 }
+            } else {
+                $defaultRole = $this->getOrCreateDefaultCustomRole($admin, $roleName);
+                if ($defaultRole) {
+                    $this->customRoleService->assignRoleToUser($admin, $user, $defaultRole);
+                }
             }
 
-            return [
-                'user' => $user,
-                'password' => $password,
-            ];
+            return ['user' => $user, 'password' => $password];
         });
     }
 
@@ -110,29 +113,28 @@ class AdminUserService
         $this->ensureManagedByAdmin($admin, $member);
 
         $updatePayload = [
-            'first_name' => $data['first_name'] ?? $member->first_name,
-            'last_name' => $data['last_name'] ?? $member->last_name,
-            'email' => $data['email'] ?? $member->email,
-            'institution' => $data['institution'] ?? $member->institution,
-            'specialty' => $data['specialty'] ?? $member->specialty,
-            'orcid' => $data['orcid'] ?? $member->orcid,
-            'is_active' => $data['is_active'] ?? $member->is_active,
+            'first_name'           => $data['first_name']           ?? $member->first_name,
+            'last_name'            => $data['last_name']            ?? $member->last_name,
+            'email'                => $data['email']                ?? $member->email,
+            'institution'          => $data['institution']          ?? $member->institution,
+            'specialty'            => $data['specialty']            ?? $member->specialty,
+            'orcid'                => $data['orcid']                ?? $member->orcid,
+            'is_active'            => $data['is_active']            ?? $member->is_active,
             'must_change_password' => $data['must_change_password'] ?? $member->must_change_password,
         ];
 
-        // Admin resets the user's password
         if (!empty($data['new_password'])) {
             $updatePayload['password'] = $data['new_password'];
         }
 
         $member->update($updatePayload);
 
+        $newSpatieRole = null;
         if (isset($data['role'])) {
-            $spatieRole = SpatieRole::findByName($data['role'], 'web');
-            $member->syncRoles([$spatieRole]);
+            $newSpatieRole = SpatieRole::findByName($data['role'], 'web');
+            $member->syncRoles([$newSpatieRole]);
         }
 
-        // Mettre à jour le rôle custom si fourni
         if (array_key_exists('custom_role_uuid', $data)) {
             if ($data['custom_role_uuid']) {
                 $customRole = CustomRole::where('uuid', $data['custom_role_uuid'])
@@ -143,6 +145,15 @@ class AdminUserService
                 }
             } else {
                 $this->customRoleService->removeRoleFromUser($admin, $member);
+            }
+        } elseif ($newSpatieRole) {
+            // Rôle Spatie changé sans custom_role_uuid → assigner défaut si l'utilisateur n'en a pas
+            $member->load('customRoles');
+            if ($member->customRoles->isEmpty()) {
+                $defaultRole = $this->getOrCreateDefaultCustomRole($admin, $newSpatieRole->name);
+                if ($defaultRole) {
+                    $this->customRoleService->assignRoleToUser($admin, $member, $defaultRole);
+                }
             }
         }
 
@@ -168,8 +179,6 @@ class AdminUserService
             return;
         }
 
-        // When the current admin is the only owner, soft delete the user
-        // and keep the admin ownership pivot so the trashed user can be restored.
         $member->delete();
     }
 
@@ -193,9 +202,7 @@ class AdminUserService
     public function restoreMember(User $admin, User $member): User
     {
         $this->ensureManagedByAdmin($admin, $member);
-
         $member->restore();
-
         return $member->fresh();
     }
 
@@ -207,34 +214,169 @@ class AdminUserService
     }
 
     /**
-     * Génère un identifiant au format ORCID (ISO 7064 MOD 11-2) unique.
-     * Format : XXXX-XXXX-XXXX-XXXX (15 chiffres + 1 chiffre de contrôle)
+     * Proxy public pour assignRoleToUser — utilisé par CheckCustomPermission.
+     */
+    public function assignDefaultRoleToUser(User $admin, User $user, CustomRole $role): void
+    {
+        $this->customRoleService->assignRoleToUser($admin, $user, $role);
+    }
+
+    /**
+     * Trouve ou crée le rôle custom par défaut pour un rôle Spatie donné.
+     * Créé une seule fois par admin (slug = "default_{spatieRole}").
+     */
+    public function getOrCreateDefaultCustomRole(User $admin, string $spatieRole): ?CustomRole
+    {
+        $slug     = 'default_' . $spatieRole;
+        $existing = CustomRole::where('admin_id', $admin->id)->where('slug', $slug)->first();
+
+        if ($existing) {
+            return $existing;
+        }
+
+        $researcherPerms = [
+            Permission::PROJECTS_VIEW_LIST->value,
+            Permission::PROJECTS_VIEW_DETAIL->value,
+            Permission::PROJECTS_SUBMIT->value,
+            Permission::TASKS_VIEW->value,
+            Permission::TASKS_CREATE->value,
+            Permission::TASKS_EDIT_OWN->value,
+            Permission::TASKS_DELETE_OWN->value,
+            Permission::TASKS_CHANGE_STATUS->value,
+            Permission::TASKS_COMMENT->value,
+            Permission::TASKS_ATTACH_FILES->value,
+            Permission::PUBLICATIONS_VIEW_LIST->value,
+            Permission::PUBLICATIONS_VIEW_DETAIL->value,
+            Permission::PUBLICATIONS_SUBMIT->value,
+            Permission::PUBLICATIONS_EDIT_OWN->value,
+            Permission::PUBLICATIONS_DELETE_OWN->value,
+            Permission::PUBLICATIONS_EXPORT_BIBTEX->value,
+            Permission::PUBLICATIONS_EXPORT_APA->value,
+            Permission::PUBLICATIONS_AI_ANALYZE->value,
+            Permission::CALENDAR_VIEW->value,
+            Permission::CALENDAR_CREATE_MEETING->value,
+            Permission::CALENDAR_EDIT_OWN_MEETING->value,
+            Permission::CALENDAR_JOIN_VIDEO_CALL->value,
+            Permission::CALENDAR_START_VIDEO_CALL->value,
+            Permission::CALENDAR_VIEW_MINUTES->value,
+            Permission::CALENDAR_INVITE_PARTICIPANTS->value,
+            Permission::MESSAGES_SEND_DIRECT->value,
+            Permission::MESSAGES_SEND_GROUP->value,
+            Permission::MESSAGES_DELETE_OWN->value,
+            Permission::MESSAGES_VIEW_HISTORY->value,
+            Permission::NOTIFICATIONS_VIEW->value,
+            Permission::NOTIFICATIONS_MARK_READ->value,
+            Permission::NOTIFICATIONS_DELETE->value,
+            Permission::AI_USE_CHAT_ASSISTANT->value,
+            Permission::AI_ANALYZE_PUBLICATION->value,
+            Permission::AI_SUMMARIZE_MEETING->value,
+            Permission::AI_VIEW_ANALYSES->value,
+            Permission::USERS_VIEW_PROFILE->value,
+        ];
+
+        $map = [
+            'researcher' => [
+                'name'  => 'Chercheur (défaut)',
+                'color' => '#0891b2',
+                'perms' => $researcherPerms,
+            ],
+            'team_lead' => [
+                'name'  => 'Chef d\'équipe (défaut)',
+                'color' => '#7c3aed',
+                'perms' => array_merge($researcherPerms, [
+                    Permission::PROJECTS_CREATE->value,
+                    Permission::PROJECTS_EDIT->value,
+                    Permission::PROJECTS_MANAGE_MEMBERS->value,
+                    Permission::PROJECTS_VIEW_STATS->value,
+                    Permission::PROJECTS_MANAGE_MILESTONES->value,
+                    Permission::PROJECTS_MANAGE_TASKS->value,
+                    Permission::PROJECTS_VIEW_BUDGET->value,
+                    Permission::PROJECTS_EXPORT_REPORT->value,
+                    Permission::TASKS_EDIT_ANY->value,
+                    Permission::TASKS_DELETE_ANY->value,
+                    Permission::TASKS_ASSIGN->value,
+                    Permission::TASKS_VALIDATE->value,
+                    Permission::TASKS_VIEW_ALL_MEMBERS->value,
+                    Permission::PUBLICATIONS_EDIT_ANY->value,
+                    Permission::PUBLICATIONS_REVIEW->value,
+                    Permission::CALENDAR_EDIT_ANY_MEETING->value,
+                    Permission::CALENDAR_DELETE_MEETING->value,
+                    Permission::CALENDAR_EDIT_MINUTES->value,
+                    Permission::CALENDAR_AI_SUMMARIZE->value,
+                    Permission::MESSAGES_CREATE_CHANNEL->value,
+                    Permission::MESSAGES_DELETE_ANY->value,
+                    Permission::USERS_VIEW_LIST->value,
+                ]),
+            ],
+            'institution' => [
+                'name'  => 'Institution (défaut)',
+                'color' => '#059669',
+                'perms' => [
+                    Permission::PROJECTS_VIEW_LIST->value,
+                    Permission::PROJECTS_VIEW_DETAIL->value,
+                    Permission::PROJECTS_VIEW_STATS->value,
+                    Permission::PROJECTS_APPROVE->value,
+                    Permission::PROJECTS_REJECT->value,
+                    Permission::PUBLICATIONS_VIEW_LIST->value,
+                    Permission::PUBLICATIONS_VIEW_DETAIL->value,
+                    Permission::PUBLICATIONS_REVIEW->value,
+                    Permission::PUBLICATIONS_EXPORT_BIBTEX->value,
+                    Permission::PUBLICATIONS_EXPORT_APA->value,
+                    Permission::CALENDAR_VIEW->value,
+                    Permission::CALENDAR_VIEW_MINUTES->value,
+                    Permission::USERS_VIEW_LIST->value,
+                    Permission::USERS_VIEW_PROFILE->value,
+                    Permission::USERS_VIEW_ACTIVITY->value,
+                    Permission::NOTIFICATIONS_VIEW->value,
+                    Permission::NOTIFICATIONS_MARK_READ->value,
+                    Permission::AI_VIEW_ANALYSES->value,
+                ],
+            ],
+        ];
+
+        if (!isset($map[$spatieRole])) {
+            return null;
+        }
+
+        $cfg  = $map[$spatieRole];
+        $role = CustomRole::create([
+            'uuid'        => (string) Str::uuid(),
+            'admin_id'    => $admin->id,
+            'name'        => $cfg['name'],
+            'slug'        => $slug,
+            'color'       => $cfg['color'],
+            'description' => 'Rôle par défaut assigné automatiquement.',
+            'is_system'   => true,
+        ]);
+
+        foreach (array_unique($cfg['perms']) as $key) {
+            CustomRolePermission::create(['role_id' => $role->id, 'permission_key' => $key]);
+        }
+
+        return $role;
+    }
+
+    /**
+     * Génère un identifiant ORCID unique (ISO 7064 MOD 11-2).
      */
     protected function generateOrcid(): string
     {
         do {
-            // Générer 15 chiffres aléatoires
             $digits = [];
             for ($i = 0; $i < 15; $i++) {
                 $digits[] = random_int(0, 9);
             }
-
-            // Calcul du chiffre de contrôle ISO 7064 MOD 11-2
             $total = 0;
             foreach ($digits as $digit) {
                 $total = ($total + $digit) * 2;
             }
             $remainder = 12 - ($total % 11);
-            if ($remainder === 10) {
-                $checksum = 'X';
-            } elseif ($remainder === 11) {
-                $checksum = '0';
-            } else {
-                $checksum = (string) $remainder;
-            }
-
-            $all = implode('', $digits) . $checksum;
-            $orcid = implode('-', str_split($all, 4));
+            $checksum  = match (true) {
+                $remainder === 10 => 'X',
+                $remainder === 11 => '0',
+                default           => (string) $remainder,
+            };
+            $orcid = implode('-', str_split(implode('', $digits) . $checksum, 4));
         } while (User::withTrashed()->where('orcid', $orcid)->exists());
 
         return $orcid;

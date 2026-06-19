@@ -41,9 +41,10 @@ class DashboardController extends Controller
         $user = $request->user();
 
         $data = [
-            'kpis'       => $this->stats->getTeamLeadKPIs($user),
-            'workload'   => $this->stats->getWorkloadByMember($user),
-            'milestones' => $this->stats->getMilestones($user),
+            'kpis'            => $this->stats->getTeamLeadKPIs($user),
+            'tasks_by_status' => $this->stats->getTeamLeadTasksByStatus($user),
+            'workload'        => $this->stats->getWorkloadByMember($user),
+            'milestones'      => $this->stats->getMilestones($user),
         ];
 
         return response()->json($data);
@@ -55,9 +56,14 @@ class DashboardController extends Controller
     {
         $user = $request->user();
 
+        $kpis = $this->stats->getResearcherKPIs($user);
+        $tasksByStatus = $kpis['tasks_by_status'] ?? [];
+        unset($kpis['tasks_by_status']);
+
         $data = [
-            'kpis'         => $this->stats->getResearcherKPIs($user),
-            'weekly_tasks' => $this->stats->getResearcherWeeklyTasks($user),
+            'kpis'            => $kpis,
+            'weekly_tasks'    => $this->stats->getResearcherWeeklyTasks($user),
+            'tasks_by_status' => $tasksByStatus,
         ];
 
         return response()->json($data);

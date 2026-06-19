@@ -96,27 +96,100 @@ class StatsService
 
     // ── Team Lead KPIs ────────────────────────────────────────────────────────
 
+    /**
+     * Récupère les IDs de projets du chef d'équipe :
+     * projets dont il est lead OU membre (table project_user).
+     */
+    private function getTeamLeadProjectIds(User $user): \Illuminate\Support\Collection
+    {
+        return Project::where(function ($q) use ($user) {
+            $q->where('lead_id', $user->id)
+              ->orWhereHas('members', fn ($m) => $m->where('user_id', $user->id));
+        })->pluck('id');
+    }
+
+    /**
+     * Construit la base de requête pour les tâches visibles d'un chef d'équipe :
+     * tâches dans ses projets OU directement assignées à lui.
+     */
+    private function teamLeadTaskQuery(User $user, \Illuminate\Support\Collection $projectIds): \Illuminate\Database\Eloquent\Builder
+    {
+        return Task::where(function ($q) use ($projectIds, $user) {
+            if ($projectIds->isNotEmpty()) {
+                $q->whereIn('project_id', $projectIds->toArray());
+            }
+            // Filet de sécurité : tâches assignées au chef même sans être dans project_user
+            $q->orWhere('assignee_id', $user->id);
+        });
+    }
+
     public function getTeamLeadKPIs(User $user): array
     {
-        $projectIds = Project::where('lead_id', $user->id)
-            ->orWhereHas('members', fn ($m) => $m->where('users.id', $user->id))
-            ->pluck('id');
+        $now        = now();
+        $projectIds = $this->getTeamLeadProjectIds($user);
 
-        $now = now();
+        $taskQuery  = $this->teamLeadTaskQuery($user, $projectIds);
 
         return [
-            'projects_count'    => $projectIds->count(),
-            'tasks_to_validate' => Task::whereIn('project_id', $projectIds)->where('status', 'submitted')->count(),
-            'overdue_tasks'     => Task::whereIn('project_id', $projectIds)->whereNotIn('status', ['validated', 'refused'])->where('due_date', '<', $now)->whereNotNull('due_date')->count(),
-            'publications_pending' => Publication::whereIn('project_id', $projectIds)->count(),
-            'next_meeting'      => Meeting::whereIn('id', function ($q) use ($user) {
-                $q->select('meeting_id')->from('meeting_user')->where('user_id', $user->id);
+            'projects_count'       => $projectIds->count(),
+            'tasks_to_validate'    => (clone $taskQuery)->where('status', 'submitted')->count(),
+            'overdue_tasks'        => (clone $taskQuery)
+                                         ->whereNotIn('status', ['validated', 'refused'])
+                                         ->where('due_date', '<', $now)
+                                         ->whereNotNull('due_date')
+                                         ->count(),
+            'publications_pending' => $projectIds->isNotEmpty()
+                ? Publication::whereIn('project_id', $projectIds->toArray())->count()
+                : 0,
+            'tasks' => [
+                'todo'        => (clone $taskQuery)->where('status', 'todo')->count(),
+                'in_progress' => (clone $taskQuery)->where('status', 'in_progress')->count(),
+                'submitted'   => (clone $taskQuery)->where('status', 'submitted')->count(),
+                'validated'   => (clone $taskQuery)->where('status', 'validated')->count(),
+                'refused'     => (clone $taskQuery)->where('status', 'refused')->count(),
+            ],
+            'next_meeting' => Meeting::where(function ($q) use ($user) {
+                $q->where('organizer_id', $user->id)
+                  ->orWhereHas('participants', fn ($pq) => $pq->where('users.id', $user->id));
             })->where('scheduled_at', '>', $now)->orderBy('scheduled_at')->first()?->toArray(),
             'budget' => [
-                'allocated' => Project::whereIn('id', $projectIds)->sum('budget_allocated'),
-                'spent'     => Project::whereIn('id', $projectIds)->sum('budget_used'),
+                'allocated' => $projectIds->isNotEmpty()
+                    ? Project::whereIn('id', $projectIds->toArray())->sum('budget_allocated')
+                    : 0,
+                'spent'     => $projectIds->isNotEmpty()
+                    ? Project::whereIn('id', $projectIds->toArray())->sum('budget_used')
+                    : 0,
             ],
         ];
+    }
+
+    /**
+     * Répartition des tâches par statut pour le chef d'équipe.
+     */
+    public function getTeamLeadTasksByStatus(User $user): array
+    {
+        $projectIds = $this->getTeamLeadProjectIds($user);
+        $taskQuery  = $this->teamLeadTaskQuery($user, $projectIds);
+
+        $rows = (clone $taskQuery)
+            ->select('status', DB::raw('count(*) as count'))
+            ->groupBy('status')
+            ->pluck('count', 'status')
+            ->toArray();
+
+        $labels = [
+            'todo'        => 'À faire',
+            'in_progress' => 'En cours',
+            'submitted'   => 'Soumis',
+            'validated'   => 'Validé',
+            'refused'     => 'Refusé',
+        ];
+
+        return collect($labels)->map(fn ($label, $key) => [
+            'status' => $key,
+            'label'  => $label,
+            'count'  => $rows[$key] ?? 0,
+        ])->values()->toArray();
     }
 
     // ── Researcher KPIs ───────────────────────────────────────────────────────
@@ -131,6 +204,20 @@ class StatsService
         // Streak: consecutive days with a validated task
         $streak = $this->calculateStreak($user->id);
 
+        $statusLabels = [
+            'todo'        => 'À faire',
+            'in_progress' => 'En cours',
+            'submitted'   => 'Soumise',
+            'validated'   => 'Validée',
+            'refused'     => 'Refusée',
+        ];
+
+        $tasksByStatus = collect(array_keys($statusLabels))->map(fn ($s) => [
+            'status' => $s,
+            'label'  => $statusLabels[$s],
+            'count'  => (clone $myTasks)->where('status', $s)->count(),
+        ])->values()->toArray();
+
         return [
             'tasks' => [
                 'total'    => (clone $myTasks)->count(),
@@ -139,9 +226,10 @@ class StatsService
                 'overdue'  => (clone $myTasks)->whereNotIn('status', ['validated', 'refused'])->where('due_date', '<', $now)->whereNotNull('due_date')->count(),
                 'completed_this_week' => (clone $myTasks)->where('status', 'validated')->where('updated_at', '>=', $startWeek)->count(),
             ],
-            'publications' => Publication::where('created_by', $user->id)->count(),
-            'streak_days'  => $streak,
-            'projects_count' => Project::whereHas('members', fn ($m) => $m->where('users.id', $user->id))->count(),
+            'publications'    => Publication::where('created_by', $user->id)->count(),
+            'streak_days'     => $streak,
+            'projects_count'  => Project::whereHas('members', fn ($m) => $m->where('users.id', $user->id))->count(),
+            'tasks_by_status' => $tasksByStatus,
         ];
     }
 
@@ -336,9 +424,7 @@ class StatsService
 
     public function getWorkloadByMember(User $teamLead): array
     {
-        $projectIds = Project::where('lead_id', $teamLead->id)
-            ->orWhereHas('members', fn ($m) => $m->where('users.id', $teamLead->id))
-            ->pluck('id');
+        $projectIds = $this->getTeamLeadProjectIds($teamLead);
 
         $memberIds = DB::table('project_user')
             ->whereIn('project_id', $projectIds)
@@ -360,9 +446,7 @@ class StatsService
 
     public function getMilestones(User $teamLead, int $days = 30): array
     {
-        $projectIds = Project::where('lead_id', $teamLead->id)
-            ->orWhereHas('members', fn ($m) => $m->where('users.id', $teamLead->id))
-            ->pluck('id');
+        $projectIds = $this->getTeamLeadProjectIds($teamLead);
 
         return Milestone::whereIn('project_id', $projectIds)
             ->where('due_date', '>=', now())
