@@ -89,8 +89,12 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
             Route::post('{project}/members',   [ProjectController::class, 'addMember'])->name('projects.members.add');
             Route::delete('{project}/members', [ProjectController::class, 'removeMember'])->name('projects.members.remove');
         });
+        // Lecture jalons : accessible à tous ceux qui peuvent voir un projet
+        Route::middleware('custom_permission:projects.view_detail')->group(function () {
+            Route::get('{project}/milestones', [ProjectController::class, 'milestones'])->name('projects.milestones');
+        });
+        // Création jalons : réservée aux gestionnaires
         Route::middleware('custom_permission:projects.manage_milestones')->group(function () {
-            Route::get('{project}/milestones',  [ProjectController::class, 'milestones'])->name('projects.milestones');
             Route::post('{project}/milestones', [ProjectController::class, 'storeMilestone'])->name('projects.milestones.store');
         });
 

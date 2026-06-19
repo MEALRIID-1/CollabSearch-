@@ -364,7 +364,9 @@ class TaskController extends Controller
      */
     public function uploadAttachment(Request $request, Task $task): JsonResponse
     {
-        $this->authorize('update', $task->project);
+        // La permission 'tasks.attach_files' est vérifiée par le middleware custom.
+        // On vérifie seulement que l'utilisateur peut voir le projet.
+        $this->authorize('view', $task->project);
 
         $request->validate([
             'file' => 'required|file|max:10240|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,jpg,jpeg,png,zip',

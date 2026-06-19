@@ -39,16 +39,25 @@ class CheckCustomPermission
             $user->load('customRoles.permissions');
         }
 
-        // Auto-corriger : si l'utilisateur n'a aucun rôle custom, lui assigner le rôle par défaut
+        $spatieRole = $user->roles->first()?->name ?? 'researcher';
+        $admin      = null;
+
         if ($user->customRoles->isEmpty()) {
+            // Pas de rôle custom → assigner le rôle par défaut
             $admin = $user->adminOwners()->first();
-            $spatieRole = $user->roles->first()?->name ?? 'researcher';
             if ($admin) {
                 $defaultRole = $this->adminUserService->getOrCreateDefaultCustomRole($admin, $spatieRole);
                 if ($defaultRole) {
                     $this->adminUserService->assignDefaultRoleToUser($admin, $user, $defaultRole);
                     $user->load('customRoles.permissions');
                 }
+            }
+        } elseif ($user->customRoles->contains(fn ($r) => str_starts_with($r->slug, 'default_'))) {
+            // L'utilisateur a un rôle par défaut → sync additif des permissions manquantes
+            $admin = $user->adminOwners()->first();
+            if ($admin && in_array($spatieRole, ['researcher', 'team_lead', 'institution'])) {
+                $this->adminUserService->getOrCreateDefaultCustomRole($admin, $spatieRole);
+                $user->load('customRoles.permissions');
             }
         }
 

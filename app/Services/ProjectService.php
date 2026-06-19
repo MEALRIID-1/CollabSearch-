@@ -23,12 +23,10 @@ class ProjectService
      */
     public function getUserProjects(User $user, ?string $status = null, ?string $search = null, int $perPage = 15)
     {
+        // Tous les utilisateurs authentifiés voient tous les projets.
+        // L'admin voit tout ; les autres voient tous les projets du système.
         $query = Project::with(['lead', 'members'])
-            ->withCount('tasks')
-            ->where(function ($q) use ($user) {
-                $q->where('lead_id', $user->id)
-                  ->orWhereHas('members', fn ($q) => $q->where('user_id', $user->id));
-            });
+            ->withCount('tasks');
 
         if ($status) {
             $query->where('status', $status);

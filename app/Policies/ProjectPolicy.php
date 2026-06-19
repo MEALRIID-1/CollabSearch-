@@ -18,10 +18,8 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project): bool
     {
-        return $user->hasRole('administrator')
-            || $project->lead_id === $user->id
-            || $project->hasMember($user)
-            || $user->hasRole('institution');
+        // Tous les utilisateurs authentifiés peuvent voir tous les projets.
+        return true;
     }
 
     /**

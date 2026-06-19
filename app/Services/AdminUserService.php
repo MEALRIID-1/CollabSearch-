@@ -227,12 +227,7 @@ class AdminUserService
      */
     public function getOrCreateDefaultCustomRole(User $admin, string $spatieRole): ?CustomRole
     {
-        $slug     = 'default_' . $spatieRole;
-        $existing = CustomRole::where('admin_id', $admin->id)->where('slug', $slug)->first();
-
-        if ($existing) {
-            return $existing;
-        }
+        $slug = 'default_' . $spatieRole;
 
         $researcherPerms = [
             Permission::PROJECTS_VIEW_LIST->value,
@@ -338,7 +333,21 @@ class AdminUserService
             return null;
         }
 
-        $cfg  = $map[$spatieRole];
+        $cfg = $map[$spatieRole];
+        $targetPerms = array_unique($cfg['perms']);
+
+        // Rôle existant → sync additif des permissions manquantes
+        $existing = CustomRole::where('admin_id', $admin->id)->where('slug', $slug)->with('permissions')->first();
+        if ($existing) {
+            $existingKeys = $existing->permissions->pluck('permission_key')->toArray();
+            $missing = array_diff($targetPerms, $existingKeys);
+            foreach ($missing as $key) {
+                CustomRolePermission::create(['role_id' => $existing->id, 'permission_key' => $key]);
+            }
+            return $existing;
+        }
+
+        // Rôle inexistant → création complète
         $role = CustomRole::create([
             'uuid'        => (string) Str::uuid(),
             'admin_id'    => $admin->id,
@@ -349,7 +358,7 @@ class AdminUserService
             'is_system'   => true,
         ]);
 
-        foreach (array_unique($cfg['perms']) as $key) {
+        foreach ($targetPerms as $key) {
             CustomRolePermission::create(['role_id' => $role->id, 'permission_key' => $key]);
         }
 
