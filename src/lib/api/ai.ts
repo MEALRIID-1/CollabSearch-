@@ -196,8 +196,7 @@ export const aiApi = {
     return response.data;
   },
 
-  async deleteMemory(id: number): Promise<{ message: string }> {
-    const response = await apiClient.delete(`/api/v1/ai/memory/${id}`);
-    return response.data;
+  async deleteMemory(id: number): Promise<void> {
+    await apiClient.delete(`/api/v1/ai/memory/${id}`);
   },
 };

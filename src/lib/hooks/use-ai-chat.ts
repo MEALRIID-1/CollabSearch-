@@ -291,7 +291,7 @@ export function useAiChat(options: UseAiChatOptions = {}) {
     sendMessage,
     thinkingStage,
 
-    // Settings
+    // Web search
     webSearchEnabled,
     setWebSearchEnabled,
 

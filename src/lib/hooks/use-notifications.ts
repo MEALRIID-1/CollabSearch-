@@ -2,12 +2,13 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNotificationStore } from '@/lib/stores/notification-store';
 
 export function useNotifications(params?: { page?: number }) {
-  const { fetchNotifications, notifications, isLoading } = useNotificationStore();
+  const fetchNotifications = useNotificationStore((s) => s.fetchNotifications);
   return useQuery({
     queryKey: ['notifications', params],
     queryFn: async () => {
       await fetchNotifications();
-      return notifications;
+      // Lire l'état le plus récent du store (évite la closure périmée)
+      return useNotificationStore.getState().notifications ?? [];
     },
   });
 }
@@ -29,6 +30,7 @@ export function useMarkNotificationRead() {
     mutationFn: (id: number) => markAsRead(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['unread-count'] });
     },
   });
 }
@@ -40,6 +42,7 @@ export function useMarkAllNotificationsRead() {
     mutationFn: markAllAsRead,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['unread-count'] });
     },
   });
 }

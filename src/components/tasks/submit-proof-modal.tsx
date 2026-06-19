@@ -137,19 +137,11 @@ export function SubmitProofModal({ taskId, open, onClose }: SubmitProofModalProp
           <Button
             onClick={handleSubmit}
             disabled={!selectedFile || isSubmitting}
-            className="bg-amber-500 hover:bg-amber-600 text-white"
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Soumission…
-              </>
-            ) : (
-              'Soumettre'
-            )}
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+            className="bg-amber-500 hover:bg-amber-600 text-white">
+              {isSubmitting ? 'Envoi…' : 'Soumettre'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
   );
 }

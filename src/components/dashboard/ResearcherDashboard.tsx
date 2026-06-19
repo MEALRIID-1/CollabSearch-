@@ -69,7 +69,7 @@ export function ResearcherDashboard({ userId }: { userId?: number }) {
 
       {/* Row 1 : Tâches par statut + Weekly bar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <TaskStatusDonut title="Mes tâches par statut" />
+        <TaskStatusDonut title="Mes tâches par statut" preloadedData={data?.tasks_by_status} />
         <WeeklyTasksBar data={data?.weekly_tasks ?? []} isLoading={isLoading} />
       </div>
 

@@ -82,7 +82,6 @@ export function VideoRoomControls({
           size="icon"
           onClick={onLeave}
           className="h-12 w-12 rounded-full ml-2 text-orange-400 hover:bg-orange-500/20 hover:text-orange-300"
-          aria-label="Quitter la réunion"
         >
           <LogOut className="h-5 w-5" />
         </Button>
@@ -91,11 +90,10 @@ export function VideoRoomControls({
       {/* Bouton Terminer (organisateur uniquement) */}
       {isOrganizer && (
         <Button
-          variant="destructive"
+          variant="ghost"
           size="icon"
           onClick={onEndMeeting}
-          className="h-12 w-12 rounded-full ml-2"
-          aria-label="Terminer la réunion pour tous"
+          className="h-12 w-12 rounded-full ml-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 hover:text-red-300"
         >
           <PhoneOff className="h-5 w-5" />
         </Button>

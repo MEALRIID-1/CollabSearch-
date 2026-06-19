@@ -70,7 +70,10 @@ export function TeamLeadDashboard() {
 
       {/* Row 2 : Donut + Charge travail */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <TaskStatusDonut title="Statuts des tâches (mes projets)" />
+        <TaskStatusDonut
+          title="Statuts des tâches (mes projets)"
+          preloadedData={data?.tasks_by_status}
+        />
         <WorkloadBarChart data={data?.workload ?? []} isLoading={isLoading} />
       </div>
 

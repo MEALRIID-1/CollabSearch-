@@ -2,6 +2,7 @@
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTasksByStatus } from '@/lib/hooks/use-dashboard';
+import type { TaskStatusEntry } from '@/types/models';
 
 const STATUS_COLORS: Record<string, string> = {
   todo:        '#94a3b8',
@@ -14,10 +15,18 @@ const STATUS_COLORS: Record<string, string> = {
 interface Props {
   projectId?: number;
   title?: string;
+  /** Données pré-chargées — si fournies, évite le fetch séparé */
+  preloadedData?: TaskStatusEntry[];
 }
 
-export function TaskStatusDonut({ projectId, title = 'Répartition des tâches' }: Props) {
-  const { data = [], isLoading } = useTasksByStatus(projectId);
+export function TaskStatusDonut({ projectId, title = 'Répartition des tâches', preloadedData }: Props) {
+  // Fetch uniquement si aucune donnée pré-chargée n'est fournie
+  const { data: fetched = [], isLoading: fetchLoading } = useTasksByStatus(
+    preloadedData === undefined ? projectId : undefined,
+    { enabled: preloadedData === undefined },
+  );
+  const data   = preloadedData ?? fetched;
+  const isLoading = preloadedData === undefined ? fetchLoading : false;
   const filtered = data.filter((d) => d.count > 0);
   const total = filtered.reduce((s, d) => s + d.count, 0);
 

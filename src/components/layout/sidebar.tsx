@@ -133,27 +133,28 @@ export function Sidebar() {
     <TooltipProvider delayDuration={0}>
       <aside
         className={cn(
-          'flex flex-col h-screen bg-neutral-900 text-white transition-all duration-300 ease-in-out',
+          'flex flex-col h-screen text-white transition-all duration-300 ease-in-out',
           collapsed ? 'w-[68px]' : 'w-64'
         )}
+        style={{ background: 'linear-gradient(180deg, #2e2065 0%, #3b2882 55%, #4c32a0 100%)' }}
       >
         {/* Logo / App Name */}
-        <div className="flex items-center justify-between h-16 px-4 border-b border-neutral-800">
+        <div className="flex items-center justify-between h-16 px-4 border-b" style={{ borderColor: '#5b3fa8' }}>
           {!collapsed && (
             <Link href="/dashboard" className="flex items-center gap-2">
-              <Search className="h-7 w-7 text-[#2563EB]" />
-              <span className="text-lg font-bold tracking-tight">{APP_NAME}</span>
+              <Search className="h-7 w-7 text-white" />
+              <span className="text-lg font-bold tracking-tight text-white">{APP_NAME}</span>
             </Link>
           )}
           {collapsed && (
             <Link href="/dashboard" className="mx-auto">
-              <Search className="h-7 w-7 text-[#2563EB]" />
+              <Search className="h-7 w-7 text-white" />
             </Link>
           )}
           <Button
             variant="ghost"
             size="icon"
-            className="text-neutral-400 hover:text-white hover:bg-neutral-800 h-8 w-8"
+            className="text-slate-400 hover:text-white hover:bg-white/10 h-8 w-8"
             onClick={() => setCollapsed(!collapsed)}
             aria-label={collapsed ? 'Developper le menu' : 'Reduire le menu'}
           >
@@ -174,8 +175,8 @@ export function Sidebar() {
                   className={cn(
                     'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                     active
-                      ? 'bg-[#2563EB] text-white'
-                      : 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
+                      ? 'bg-white/15 text-white ring-1 ring-white/20'
+                      : 'text-slate-300 hover:bg-white/10 hover:text-white'
                   )}
                 >
                   <Icon className="h-5 w-5 shrink-0" />
@@ -202,25 +203,25 @@ export function Sidebar() {
         </nav>
 
         {/* User Info */}
-        <Separator className="bg-neutral-800" />
+        <Separator style={{ backgroundColor: '#5b3fa8' }} />
         <div className={cn('p-3 flex items-center gap-3', collapsed && 'justify-center')}>
           <Avatar className="h-9 w-9 shrink-0">
             <AvatarImage src={user?.avatar ?? undefined} alt={user?.full_name ?? ''} />
-            <AvatarFallback className="bg-[#2563EB] text-white text-xs">
+            <AvatarFallback className="bg-white/20 text-white text-xs">
               {user ? getInitials(user.full_name) : 'U'}
             </AvatarFallback>
           </Avatar>
           {!collapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">{user?.full_name ?? 'Utilisateur'}</p>
-              <p className="text-xs text-neutral-400 truncate">{user?.email ?? ''}</p>
+              <p className="text-sm font-medium truncate text-white">{user?.full_name ?? 'Utilisateur'}</p>
+              <p className="text-xs text-slate-400 truncate">{user?.email ?? ''}</p>
             </div>
           )}
           {!collapsed && (
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8 text-neutral-400 hover:text-red-400 hover:bg-neutral-800 shrink-0"
+              className="h-8 w-8 text-slate-400 hover:text-red-300 hover:bg-white/10 shrink-0"
               onClick={() => logout()}
               aria-label="Se deconnecter"
             >
@@ -233,7 +234,7 @@ export function Sidebar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-neutral-400 hover:text-red-400 hover:bg-neutral-800"
+                  className="h-8 w-8 text-slate-400 hover:text-red-300 hover:bg-white/10"
                   onClick={() => logout()}
                   aria-label="Se deconnecter"
                 >

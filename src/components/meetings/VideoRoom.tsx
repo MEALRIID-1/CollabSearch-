@@ -136,70 +136,19 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
             title={isVideoMuted ? 'Activer la caméra' : 'Couper la caméra'}>
             {isVideoMuted ? <VideoOff className="h-4 w-4" /> : <Video className="h-4 w-4" />}
           </Button>
-
-          <Button variant="ghost" size="icon" onClick={() => exec('toggleShareScreen')}
-            className={cn('h-9 w-9 rounded-full text-white hover:bg-white/10',
-              isScreenSharing && 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30')}
-            title={isScreenSharing ? 'Arrêter le partage' : 'Partager l\'écran'}>
-            <MonitorUp className="h-4 w-4" />
-          </Button>
-
-          <Button variant="ghost" size="icon" onClick={() => setShowParticipants((v) => !v)}
-            className={cn('h-9 w-9 rounded-full text-white hover:bg-white/10',
-              showParticipants && 'bg-white/20')}
-            title="Participants">
-            <Users className="h-4 w-4" />
-            {participants.length > 0 && (
-              <span className="ml-0.5 text-[11px] text-white/70">{participants.length}</span>
-            )}
-          </Button>
         </div>
 
-        {/* Droite : Quitter (tous) + Terminer (organisateur) */}
+        {/* Droite : quitter */}
         <div className="flex items-center gap-2">
-          {/* Bouton Quitter visible pour TOUS les participants */}
-          <Button
-            variant="ghost"
-            onClick={onReadyToClose}
-            className="text-orange-400 hover:bg-orange-500/20 hover:text-orange-300 h-9 px-3 text-sm"
-          >
-            <LogOut className="h-4 w-4 mr-1.5" />
-            Quitter
-          </Button>
-
-          {/* Terminer pour tous — organisateur uniquement */}
-          {isOrganizer && (
-            <Button variant="destructive" onClick={onEndMeeting} className="h-9 px-3 text-sm">
-              <PhoneOff className="h-4 w-4 mr-1.5" />
-              Terminer
-            </Button>
-          )}
+          <span className="text-xs text-white/50 hidden md:block">
+            {participants.length} participant{participants.length !== 1 ? 's' : ''}
+          </span>
         </div>
       </div>
 
-      {/* ── Corps : Jitsi + panneau participants ─────────────────────────── */}
-      <div className="flex flex-1 min-h-0">
-        <div className="flex-1 min-h-0 min-w-0">
-          {isJaaS ? (
-            <JaaSMeeting
-              appId={conference.app_id || process.env.NEXT_PUBLIC_JITSI_APP_ID || 'collabsearch'}
-              {...meetingProps}
-            />
-          ) : (
-            <JitsiMeeting domain={domain} {...meetingProps} />
-          )}
-        </div>
-
-        {showParticipants && participants.length > 0 && (
-          <div className="w-56 shrink-0 bg-neutral-900 border-l border-white/10 overflow-y-auto">
-            <p className="text-xs font-semibold text-white/50 uppercase px-3 pt-3 pb-2">
-              Participants ({participants.length})
-            </p>
-            {participants.map((p) => (
-              <div key={p.id} className="px-3 py-1.5 text-sm text-white/80 truncate">{p.displayName}</div>
-            ))}
-          </div>
-        )}
+      {/* ── Zone Jitsi ──────────────────────────────────────────────── */}
+      <div className="flex-1 overflow-hidden">
+        <JitsiMeeting {...meetingProps} />
       </div>
     </div>
   );

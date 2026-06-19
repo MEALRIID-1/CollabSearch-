@@ -67,6 +67,7 @@ export function UserManagementTable() {
     password: '',
     institution: '',
     specialty: '',
+    role: 'researcher' as 'researcher' | 'team_lead' | 'institution',
     custom_role_uuid: '',
   });
   const [editUser, setEditUser] = useState<User | null>(null);
@@ -130,9 +131,10 @@ export function UserManagementTable() {
         password: providedPassword || undefined,
         institution: newUserData.institution || undefined,
         specialty: newUserData.specialty || undefined,
+        role: newUserData.role,
         custom_role_uuid: (newUserData.custom_role_uuid && newUserData.custom_role_uuid !== '__none__') ? newUserData.custom_role_uuid : undefined,
       } as any);
-      setNewUserData({ first_name: '', last_name: '', email: '', password: '', institution: '', specialty: '', custom_role_uuid: '' });
+      setNewUserData({ first_name: '', last_name: '', email: '', password: '', institution: '', specialty: '', role: 'researcher', custom_role_uuid: '' });
       setShowCreateDialog(false);
       queryClient.invalidateQueries({ queryKey: ['admin-users'] });
       if (!providedPassword && result.password) {
@@ -500,11 +502,24 @@ export function UserManagementTable() {
               onChange={(e) => setNewUserData({ ...newUserData, specialty: e.target.value })}
             />
             <Select
+              value={newUserData.role}
+              onValueChange={(value) => setNewUserData({ ...newUserData, role: value as 'researcher' | 'team_lead' | 'institution' })}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Rôle Spatie" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="researcher">Chercheur</SelectItem>
+                <SelectItem value="team_lead">Chef d'équipe</SelectItem>
+                <SelectItem value="institution">Institution</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select
               value={newUserData.custom_role_uuid}
               onValueChange={(value) => setNewUserData({ ...newUserData, custom_role_uuid: value })}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Selectionner un role (optionnel)" />
+                <SelectValue placeholder="Rôle personnalisé (optionnel)" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__none__">-- Aucun role --</SelectItem>
@@ -574,26 +589,6 @@ export function UserManagementTable() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
-      <ConfirmDialog
-        open={!!deleteTarget}
-        onOpenChange={(open) => !open && setDeleteTarget(null)}
-        title="Supprimer l'utilisateur"
-        description={`Etes-vous sur de vouloir supprimer l'utilisateur "${deleteTarget?.full_name}" ?`}
-        confirmLabel="Supprimer"
-        onConfirm={handleDeleteUser}
-        isLoading={isDeleting}
-      />
-
-      <ConfirmDialog
-        open={!!restoreTarget}
-        onOpenChange={(open) => !open && setRestoreTarget(null)}
-        title="Restaurer l'utilisateur"
-        description={`Voulez-vous restaurer le compte de "${restoreTarget?.full_name}" ?`}
-        confirmLabel="Restaurer"
-        onConfirm={handleRestoreUser}
-        isLoading={isRestoring}
-      />
     </>
   );
 }

@@ -377,6 +377,13 @@ export interface TeamLeadKPIs {
   tasks_to_validate: number;
   overdue_tasks: number;
   publications_pending: number;
+  tasks: {
+    todo: number;
+    in_progress: number;
+    submitted: number;
+    validated: number;
+    refused: number;
+  };
   next_meeting: Record<string, unknown> | null;
   budget: { allocated: number; spent: number };
 }
@@ -397,6 +404,7 @@ export interface MilestoneEntry {
 
 export interface TeamLeadDashboardData {
   kpis: TeamLeadKPIs;
+  tasks_by_status: TaskStatusEntry[];
   workload: WorkloadEntry[];
   milestones: MilestoneEntry[];
 }
@@ -422,6 +430,7 @@ export interface WeeklyTaskEntry {
 export interface ResearcherDashboardData {
   kpis: ResearcherKPIs;
   weekly_tasks: WeeklyTaskEntry[];
+  tasks_by_status: TaskStatusEntry[];
 }
 
 export interface InstitutionKPIs {
@@ -459,7 +468,6 @@ export interface PublicationTrendEntry {
   month: string;
   count: number;
 }
-
 export interface BudgetProjectEntry {
   id: number;
   title: string;
@@ -477,3 +485,4 @@ export interface ActivityLogEntry {
   subject_id: number | null;
   created_at: string;
 }
+

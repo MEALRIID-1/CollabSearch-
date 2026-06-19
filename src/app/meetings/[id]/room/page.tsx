@@ -119,13 +119,14 @@ export default function MeetingRoomPage({ params }: { params: Promise<{ id: stri
     );
   }
 
+  // Phase lobby (défaut)
   return (
     <AppLayout>
       <MeetingLobby
         meeting={meeting}
         isJoining={joinMutation.isPending}
         onJoin={handleJoin}
-        onCancel={handleClose}
+        onCancel={() => router.push('/calendar')}
       />
     </AppLayout>
   );

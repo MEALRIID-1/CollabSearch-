@@ -114,7 +114,7 @@ export function AdminDashboard() {
         {data?.health && <HealthScoreGauge data={data.health} />}
       </div>
 
-      {/* Activity feed */}
+      {/* Row 4 : Flux d'activité */}
       <ActivityFeed />
     </div>
   );

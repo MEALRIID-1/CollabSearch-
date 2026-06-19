@@ -48,11 +48,12 @@ export function useProductivity(period: 'week' | 'month' | 'quarter' = 'month') 
   });
 }
 
-export function useTasksByStatus(projectId?: number) {
+export function useTasksByStatus(projectId?: number, options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: ['stats', 'tasks-by-status', projectId],
     queryFn: () => dashboardApi.getTasksByStatus(projectId),
     staleTime: 0,
+    enabled: options?.enabled ?? true,
   });
 }
 
