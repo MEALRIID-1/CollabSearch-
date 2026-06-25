@@ -19,10 +19,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->statefulApi();
-        $middleware->api(prepend: [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        ]);
+        // Removed statefulApi() and EnsureFrontendRequestsAreStateful 
+        // because we're using Bearer token authentication, not cookie-based
         $middleware->redirectGuestsTo(fn () => '/api/v1/auth/login');
         $middleware->appendToGroup('api', [
             \App\Http\Middleware\ApiRateLimiter::class,
