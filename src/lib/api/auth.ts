@@ -1,4 +1,4 @@
-import apiClient, { getCsrfCookie } from './client';
+import apiClient from './client';
 import type { LoginRequest, RegisterRequest, AuthResponse } from '@/types/api';
 import type { User } from '@/types/models';
 import Cookies from 'js-cookie';
@@ -8,7 +8,6 @@ const isValidToken = (token: unknown): token is string =>
 
 export const authApi = {
   async login(data: LoginRequest): Promise<AuthResponse> {
-    await getCsrfCookie();
     const response = await apiClient.post<AuthResponse>('/api/v1/auth/login', data);
     const token = response.data.token;
 
@@ -22,7 +21,6 @@ export const authApi = {
   },
 
   async register(data: RegisterRequest): Promise<AuthResponse> {
-    await getCsrfCookie();
     const response = await apiClient.post<AuthResponse>('/api/v1/auth/register', data);
     const token = response.data.token;
 

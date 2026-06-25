@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { LogOut, Mic, MicOff, Video, VideoOff, MonitorUp, PhoneOff, Users } from 'lucide-react';
+import { LogOut, Mic, MicOff, Video, VideoOff, PhoneOff } from 'lucide-react';
 import type IJitsiMeetExternalApi from '@jitsi/react-sdk/lib/types/IJitsiMeetExternalApi';
 import { LoadingSpinner } from '@/components/shared/loading-spinner';
 import { RecordingIndicator } from './RecordingIndicator';
@@ -12,12 +12,7 @@ import type { VideoConferenceJoinResponse, VideoConferenceParticipant } from '@/
 
 const JitsiMeeting = dynamic(
   () => import('@jitsi/react-sdk').then((mod) => mod.JitsiMeeting),
-  { ssr: false, loading: () => <LoadingSpinner text="Chargement de la visioconférence..." size="lg" /> }
-);
-
-const JaaSMeeting = dynamic(
-  () => import('@jitsi/react-sdk').then((mod) => mod.JaaSMeeting),
-  { ssr: false, loading: () => <LoadingSpinner text="Chargement de la visioconférence..." size="lg" /> }
+  { ssr: false, loading: () => <LoadingSpinner text="Chargement de la visioconference..." size="lg" /> }
 );
 
 interface VideoRoomProps {
@@ -34,10 +29,8 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [showParticipants, setShowParticipants] = useState(false);
 
   const domain = conference.domain || process.env.NEXT_PUBLIC_JITSI_SERVER?.replace(/^https?:\/\//, '') || 'meet.jit.si';
-  const isJaaS = domain.includes('8x8.vc');
 
   const syncParticipants = useCallback(() => {
     const api = apiRef.current;
@@ -56,17 +49,14 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
   const handleApiReady = useCallback(
     (api: IJitsiMeetExternalApi) => {
       apiRef.current = api;
-
       api.addListener('participantJoined', () => syncParticipants());
       api.addListener('participantLeft', () => syncParticipants());
       api.addListener('audioMuteStatusChanged', (p: { muted: boolean }) => setIsAudioMuted(p.muted));
       api.addListener('videoMuteStatusChanged', (p: { muted: boolean }) => setIsVideoMuted(p.muted));
       api.addListener('screenSharingStatusChanged', (p: { on: boolean }) => setIsScreenSharing(p.on));
       api.addListener('recordingStatusChanged', (p: { on: boolean }) => setIsRecording(p.on));
-      // Intercepte le raccrochage natif Jitsi → redirige vers notre page de fin
       api.addListener('readyToClose', () => onReadyToClose());
       api.addListener('videoConferenceLeft', () => onReadyToClose());
-
       syncParticipants();
     },
     [syncParticipants, onReadyToClose]
@@ -92,7 +82,6 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
       prejoinPageEnabled: false,
       disableDeepLinking: true,
       enableWelcomePage: false,
-      // Cache le bouton raccrocher natif Jitsi (on utilise nos propres boutons)
       toolbarButtons: ['microphone', 'camera', 'desktop', 'chat', 'raisehand', 'tileview', 'fullscreen'],
     },
     interfaceConfigOverwrite: {
@@ -110,7 +99,7 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] bg-neutral-950">
 
-      {/* ── Barre de contrôle — AU-DESSUS de l'iframe, toujours visible ─── */}
+      {/* Barre de controle — AU-DESSUS de l'iframe */}
       <div className="shrink-0 flex items-center justify-between px-4 py-2 bg-neutral-900 border-b border-white/10">
 
         {/* Gauche : titre + enregistrement */}
@@ -121,32 +110,70 @@ export function VideoRoom({ conference, isOrganizer, onReadyToClose, onEndMeetin
           </span>
         </div>
 
-        {/* Centre : micro / caméra / écran / participants */}
+        {/* Centre : micro / camera */}
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" onClick={() => exec('toggleAudio')}
-            className={cn('h-9 w-9 rounded-full text-white hover:bg-white/10',
-              isAudioMuted && 'bg-red-500/20 text-red-400 hover:bg-red-500/30')}
-            title={isAudioMuted ? 'Activer le micro' : 'Couper le micro'}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => exec('toggleAudio')}
+            className={cn(
+              'h-9 w-9 rounded-full text-white hover:bg-white/10',
+              isAudioMuted && 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
+            )}
+            title={isAudioMuted ? 'Activer le micro' : 'Couper le micro'}
+          >
             {isAudioMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
           </Button>
 
-          <Button variant="ghost" size="icon" onClick={() => exec('toggleVideo')}
-            className={cn('h-9 w-9 rounded-full text-white hover:bg-white/10',
-              isVideoMuted && 'bg-red-500/20 text-red-400 hover:bg-red-500/30')}
-            title={isVideoMuted ? 'Activer la caméra' : 'Couper la caméra'}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => exec('toggleVideo')}
+            className={cn(
+              'h-9 w-9 rounded-full text-white hover:bg-white/10',
+              isVideoMuted && 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
+            )}
+            title={isVideoMuted ? 'Activer la camera' : 'Couper la camera'}
+          >
             {isVideoMuted ? <VideoOff className="h-4 w-4" /> : <Video className="h-4 w-4" />}
           </Button>
         </div>
 
-        {/* Droite : quitter */}
+        {/* Droite : participants + quitter */}
         <div className="flex items-center gap-2">
           <span className="text-xs text-white/50 hidden md:block">
             {participants.length} participant{participants.length !== 1 ? 's' : ''}
           </span>
+
+          {/* Quitter sans terminer */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => { exec('hangup'); onReadyToClose(); }}
+            className="h-9 px-3 rounded-full bg-orange-500/20 text-orange-400 hover:bg-orange-500/30 gap-1.5"
+            title="Quitter la reunion"
+          >
+            <LogOut className="h-4 w-4" />
+            <span className="hidden sm:inline text-xs">Quitter</span>
+          </Button>
+
+          {/* Terminer pour tous (organisateur seulement) */}
+          {isOrganizer && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => { exec('hangup'); onEndMeeting(); }}
+              className="h-9 px-3 rounded-full bg-red-500/20 text-red-400 hover:bg-red-500/30 gap-1.5"
+              title="Terminer la reunion pour tous"
+            >
+              <PhoneOff className="h-4 w-4" />
+              <span className="hidden sm:inline text-xs">Terminer</span>
+            </Button>
+          )}
         </div>
       </div>
 
-      {/* ── Zone Jitsi ──────────────────────────────────────────────── */}
+      {/* Zone Jitsi */}
       <div className="flex-1 overflow-hidden">
         <JitsiMeeting {...meetingProps} />
       </div>
